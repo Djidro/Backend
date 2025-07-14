@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline POS System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-screen" class="screen">
+        <h1>POS Login</h1>
+        <div class="login-form">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button id="login-btn">Login</button>
+        </div>
+    </div>
+
+    <div id="app" class="screen hidden">
+        <header>
+            <h1 id="app-title">POS System</h1>
+            <div id="current-user">User: <span></span></div>
+            <button id="logout-btn">Logout</button>
+        </header>
+
+        <nav id="tabs">
+            <button data-tab="pos">POS</button>
+            <button data-tab="products">Products</button>
+            <button data-tab="receipts">Receipts</button>
+            <button data-tab="expenses">Expenses</button>
+            <button data-tab="reports">Reports</button>
+            <button data-tab="shifts">Shifts</button>
+        </nav>
+
+        <main>
+            <!-- POS Tab -->
+            <div id="pos" class="tab-content">
+                <div class="products-grid" id="pos-products"></div>
+                <div class="cart-container">
+                    <h3>Current Sale</h3>
+                    <div id="cart-items"></div>
+                    <div class="cart-total">Total: <span id="cart-total">0.00</span></div>
+                    <div class="payment-options">
+                        <button class="pay-btn" data-method="cash">Pay with Cash</button>
+                        <button class="pay-btn" data-method="momo">Pay with MoMo</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Tab -->
+            <div id="products" class="tab-content hidden">
+                <div class="form-group">
+                    <input type="text" id="product-name" placeholder="Product name">
+                    <input type="number" id="product-price" placeholder="Price" step="0.01">
+                    <button id="add-product">Add Product</button>
+                </div>
+                <div id="products-list"></div>
+            </div>
+
+            <!-- Receipts Tab -->
+            <div id="receipts" class="tab-content hidden">
+                <div id="receipts-list"></div>
+                <div id="receipt-details" class="hidden">
+                    <h3>Receipt Details</h3>
+                    <div id="receipt-content"></div>
+                    <button id="close-receipt">Back to List</button>
+                </div>
+            </div>
+
+            <!-- Expenses Tab -->
+            <div id="expenses" class="tab-content hidden">
+                <div class="form-group">
+                    <input type="text" id="expense-name" placeholder="Expense name">
+                    <input type="number" id="expense-amount" placeholder="Amount" step="0.01">
+                    <textarea id="expense-note" placeholder="Note"></textarea>
+                    <button id="add-expense">Add Expense</button>
+                </div>
+                <div id="expenses-list"></div>
+            </div>
+
+            <!-- Reports Tab -->
+            <div id="reports" class="tab-content hidden">
+                <div class="date-range">
+                    <input type="date" id="report-start-date">
+                    <span>to</span>
+                    <input type="date" id="report-end-date">
+                    <button id="generate-report">Generate</button>
+                </div>
+                <div class="report-results">
+                    <div class="report-card">
+                        <h3>Total Sales</h3>
+                        <div id="total-sales">0.00</div>
+                    </div>
+                    <div class="report-card">
+                        <h3>Total Expenses</h3>
+                        <div id="total-expenses">0.00</div>
+                    </div>
+                    <div class="report-card">
+                        <h3>Profit</h3>
+                        <div id="profit">0.00</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shifts Tab -->
+            <div id="shifts" class="tab-content hidden">
+                <div id="shift-controls">
+                    <button id="start-shift" class="shift-btn">Start Shift</button>
+                    <button id="end-shift" class="shift-btn hidden">End Shift</button>
+                </div>
+                <div id="shifts-list"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

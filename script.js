@@ -1,8 +1,7 @@
-// Firebase Configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAOSlv6VF3__etlu0XxBWc3_2GYNOcj820",
   authDomain: "royal-e07f0.firebaseapp.com",
-  databaseURL: "https://royal-e07f0-default-rtdb.firebaseio.com",
+  databaseURL: "https://royal-e07f0-default-rtdb.firebaseio.com", // ← MUST HAVE
   projectId: "royal-e07f0",
   storageBucket: "royal-e07f0.appspot.com",
   messagingSenderId: "161611565973",

@@ -3,16 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Offline POS System</title>
+    <title>Firebase POS System</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database-compat.js"></script>
 </head>
 <body>
     <div id="login-screen" class="screen">
         <h1>POS Login</h1>
         <div class="login-form">
-            <input type="text" id="username" placeholder="Username" required>
+            <input type="email" id="email" placeholder="Email" required>
             <input type="password" id="password" placeholder="Password" required>
             <button id="login-btn">Login</button>
+            <button id="signup-btn">Sign Up</button>
+            <div id="login-error" class="error-message"></div>
         </div>
     </div>
 
@@ -29,7 +35,6 @@
             <button data-tab="receipts">Receipts</button>
             <button data-tab="expenses">Expenses</button>
             <button data-tab="reports">Reports</button>
-            <button data-tab="shifts">Shifts</button>
         </nav>
 
         <main>
@@ -100,15 +105,6 @@
                         <div id="profit">0.00</div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Shifts Tab -->
-            <div id="shifts" class="tab-content hidden">
-                <div id="shift-controls">
-                    <button id="start-shift" class="shift-btn">Start Shift</button>
-                    <button id="end-shift" class="shift-btn hidden">End Shift</button>
-                </div>
-                <div id="shifts-list"></div>
             </div>
         </main>
     </div>
